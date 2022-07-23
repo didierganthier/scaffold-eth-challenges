@@ -1,7 +1,6 @@
 pragma solidity >=0.8.0 <0.9.0;
 // SPDX-License-Identifier: MIT
-
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+// import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract DEX {
@@ -27,8 +26,8 @@ contract DEX {
     function price(
         uint256 input_amount,
         uint256 input_reserve,
-        uint256 output_reserve
-    ) public pure returns (uint256) {
+        uin256 output_reserve
+    ) public view returns (uint256) {
         uint256 input_amount_with_fee = input_amount.mul(997);
         uint256 numerator = input_amount_with_fee.mul(output_reserve);
         uint256 denominator = input_reserve.mul(1000).add(
